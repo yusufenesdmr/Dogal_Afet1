@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afet Tespit Sistemi - Görsel Analizi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <span>🛡️</span>
+                <span>Afet Tespit Sistemi</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/" class="active">Görsel Analizi</a></li>
+                    <li><a href="/map">Türkiye Haritası</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="card" style="max-width: 800px; margin: 0 auto;">
+            <h1 style="margin-bottom: 1.5rem; text-align: center;">📸 Afet Görsel Analizi</h1>
+            <p class="text-center text-muted mb-4">
+                Bir görsel yükleyin ve yapay zeka modelimiz afet olup olmadığını tespit etsin
+            </p>
+
+            <!-- Upload Area -->
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📁</div>
+                <h3>Görsel Yükleyin</h3>
+                <p class="text-muted mt-2">Tıklayın veya sürükle-bırak yapın</p>
+                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+            </div>
+
+            <!-- Preview Area -->
+            <div id="previewArea" class="hidden mt-3">
+                <img id="imagePreview" style="width: 100%; border-radius: 12px; margin-bottom: 1rem;">
+                <button class="btn btn-primary" id="analyzeBtn">
+                    <span>🔍</span>
+                    <span>Analiz Et</span>
+                </button>
+                <button class="btn btn-secondary" id="resetBtn">
+                    <span>🔄</span>
+                    <span>Yeniden Yükle</span>
+                </button>
+            </div>
+
+            <!-- Loading -->
+            <div id="loadingArea" class="hidden mt-4 text-center">
+                <div class="spinner"></div>
+                <p class="mt-2 text-muted">Model görseli analiz ediyor...</p>
+            </div>
+
+            <!-- Results Area -->
+            <div id="resultsArea" class="hidden">
+                <!-- Results will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+</body>
+</html>

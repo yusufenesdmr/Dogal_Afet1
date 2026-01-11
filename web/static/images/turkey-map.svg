@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <!-- Realistic Turkey Map Outline -->
+  <defs>
+    <linearGradient id="seaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgb(41,98,255);stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:rgb(0,32,96);stop-opacity:0.5" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sea background -->
+  <rect width="1200" height="700" fill="url(#seaGradient)"/>
+  
+  <!-- Turkey mainland outline (more realistic shape) -->
+  <path id="turkey-mainland" d="
+    M 280,250 
+    L 290,235 L 310,225 L 340,220 L 370,218 L 400,220 L 430,225 
+    L 460,228 L 490,228 L 520,225 L 550,220 L 580,215 L 610,212 L 640,212 
+    L 670,215 L 700,220 L 730,228 L 760,238 L 790,250 L 820,265 L 850,282 
+    L 875,302 L 895,325 L 910,350 L 920,375 L 925,400 L 925,425 
+    L 920,448 L 910,468 L 895,485 L 875,500 L 850,512 L 820,520 L 790,525 
+    L 760,528 L 730,530 L 700,532 L 670,533 L 640,534 L 610,535 L 580,536 
+    L 550,537 L 520,537 L 490,536 L 460,534 L 430,530 L 400,525 L 370,518 
+    L 340,508 L 310,495 L 285,478 L 265,458 L 250,435 L 240,410 L 235,385 
+    L 235,360 L 238,335 L 245,310 L 255,285 L 268,265 Z
+  " 
+  fill="rgba(200, 200, 200, 0.9)" 
+  stroke="#666" 
+  stroke-width="2"/>
+  
+  <!-- Provincial boundaries (simplified grid) -->
+  <g id="provinces" opacity="0.3">
+    <!-- Vertical divisions -->
+    <line x1="340" y1="220" x2="320" y2="520" stroke="#999" stroke-width="1"/>
+    <line x1="420" y1="220" x2="400" y2="530" stroke="#999" stroke-width="1"/>
+    <line x1="500" y1="215" x2="480" y2="535" stroke="#999" stroke-width="1"/>
+    <line x1="580" y1="212" x2="560" y2="535" stroke="#999" stroke-width="1"/>
+    <line x1="660" y1="215" x2="640" y2="530" stroke="#999" stroke-width="1"/>
+    <line x1="740" y1="225" x2="720" y2="525" stroke="#999" stroke-width="1"/>
+    <line x1="820" y1="250" x2="800" y2="520" stroke="#999" stroke-width="1"/>
+    
+    <!-- Horizontal divisions -->
+    <line x1="280" y1="280" x2="910" y2="295" stroke="#999" stroke-width="1"/>
+    <line x1="270" y1="340" x2="920" y2="360" stroke="#999" stroke-width="1"/>
+    <line x1="265" y1="400" x2="925" y2="420" stroke="#999" stroke-width="1"/>
+    <line x1="270" y1="460" x2="910" y2="480" stroke="#999" stroke-width="1"/>
+  </g>
+</svg>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türkiye Afet Haritası - İnteraktif</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <span>🛡️</span>
+                <span>Afet Tespit Sistemi</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Görsel Analizi</a></li>
+                    <li><a href="/map" class="active">Türkiye Haritası</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="text-center mb-4">
+            <h1>🗺️ Türkiye Afet Riski Haritası</h1>
+            <p class="text-muted mt-2">Şehirlerin üzerine gelin veya tıklayın - Detaylı afet analizi ve tavsiyeler</p>
+        </div>
+
+        <!-- Map Container -->
+        <div class="card" style="max-width: 1200px; margin: 0 auto;">
+            <div id="mapContainer" style="position: relative;">
+                <!-- SVG Turkey Map will be loaded here via JavaScript -->
+                <div id="turkeyMapWrapper"></div>
+            </div>
+
+            <!-- Legend -->
+            <div class="mt-4" style="padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px;">
+                <h3 style="margin-bottom: 1rem;">📊 Bilgi</h3>
+                <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                    <div class="stat-item" style="border-left: 3px solid #4ECDC4;">
+                        <span>🌊 Sel</span>
+                        <span>Su Baskını</span>
+                    </div>
+                    <div class="stat-item" style="border-left: 3px solid #E74C3C;">
+                        <span>🔥 Yangın</span>
+                        <span>Orman/Arazi</span>
+                    </div>
+                    <div class="stat-item" style="border-left: 3px solid #F39C12;">
+                        <span>🏚️ Deprem</span>
+                        <span>Yer Sarsıntısı</span>
+                    </div>
+                    <div class="stat-item" style="border-left: 3px solid #9B59B6;">
+                        <span>🏔️ Çığ</span>
+                        <span>Kar Kütlesi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tooltip (for hover) -->
+    <div class="tooltip" id="mapTooltip">
+        <h4 id="tooltipCity" style="margin-bottom: 0.5rem;"></h4>
+        <div id="tooltipStats"></div>
+    </div>
+
+    <!-- Modal (for click) -->
+    <div class="modal" id="cityModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalCity"></h2>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+
+            <!-- Chart -->
+            <div class="chart-container">
+                <canvas id="cityChart"></canvas>
+            </div>
+
+            <!-- Top Risk -->
+            <div id="topRisk" class="mt-3"></div>
+
+            <!-- Recommendations -->
+            <div class="recommendations mt-4">
+                <h3 style="margin-bottom: 1rem;">💡 Öneriler</h3>
+                <div id="recommendationsList"></div>
+                <button class="btn btn-secondary mt-2" id="refreshRecommendations">
+                    <span>🔄</span>
+                    <span>Yeni Tavsiye</span>
+                </button>
+            </div>
+
+            <!-- Google Search Link -->
+            <div class="mt-4 text-center">
+                <a id="googleSearchLink" target="_blank" class="btn btn-primary">
+                    <span>🔍</span>
+                    <span>Google'da Ara</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+</body>
+
+</html>
